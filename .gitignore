@@ -36,3 +36,4 @@ public/cache/
 
 # Optional: Ignore Turbo repo outputs (if used)
 turbo/
+.env
