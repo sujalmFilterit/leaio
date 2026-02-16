@@ -388,15 +388,15 @@ const Dashboard = () => {
   console.log("loading checking", isLoadingTotalPercentage, isPackageLoading);
   return (
     <>
-      <div className="flex flex-col gap-2 w-full">
-        <div className="md:hidden sticky top-0 z-50 bg-background px-4 py-3 border-b border-gray-200">
+      <div className="flex flex-col gap-3 w-full min-h-screen bg-gradient-to-br from-background via-background to-background/95">
+        <div className="md:hidden sticky top-0 z-50 bg-background/95 backdrop-blur-md px-4 py-4 border-b border-border/30 shadow-md">
           <h1 className="text-lg font-semibold text-foreground text-center">
             Overall Summary
           </h1>
         </div>
         {/* Modern Filters Row with Glassmorphism Effect */}
-        <div className="sticky top-0 z-50   dark:bg-card bg-white border border-border/40 rounded-xl shadow-lg mt-2 ">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2 p-2 sm:p-2">
+        <div className="sticky top-0 z-50 bg-card/50 backdrop-blur-md border border-border/30 rounded-xl shadow-lg mt-2 transition-all duration-300 hover:bg-card/60 hover:border-border/50">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-4 sm:p-5">
             {/* Mobile Filter Button - Only visible on small devices */}
             <div className="lg:hidden w-full flex flex-col gap-2">
               <div className="flex items-center justify-between w-full">
@@ -564,11 +564,12 @@ const Dashboard = () => {
               Invalid: XCircle,
             }}
             isLoading={isLoadingTotalPercentage || isPackageLoading}
+            className="mb-2"
           />
         </div>
 
         {/* Modern Charts Grid with Better Spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-2 transition-all duration-300">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 transition-all duration-300">
           {/* Donut Chart with Modern Card */}
           <div
             ref={(el) => {

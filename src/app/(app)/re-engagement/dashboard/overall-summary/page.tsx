@@ -1257,11 +1257,11 @@ console.log(dwTrendChartConfig,"uuu")
   };
   return (
     <>
-      <div className="flex flex-col gap-2 w-full">
-        {/* Filters Row + Toggle */}
-        <div className="sticky top-0 z-50 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 rounded-md bg-background px-4 py-3">
-          {/* Filters Section */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full">
+      <div className="flex flex-col gap-3 w-full min-h-screen bg-gradient-to-br from-background via-background to-background/95">
+        {/* Enhanced Filters Row + Toggle */}
+        <div className="sticky top-0 z-50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl bg-card/50 backdrop-blur-md border border-border/30 shadow-lg px-4 py-4 md:px-6 md:py-5 transition-all duration-300 hover:bg-card/60 hover:border-border/50">
+          {/* Filters Section with improved spacing */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full flex-wrap">
             {/* Publisher Filter */}
             <Filter
               key={`publishers-${selectedType}-${resetTimestamp}-${JSON.stringify(existingCampaigndata)}-${JSON.stringify(existingPublisherdata)}-${isInitialLoading}`}
@@ -1278,8 +1278,8 @@ console.log(dwTrendChartConfig,"uuu")
             />
           </div>
 
-          {/* Toggle Button Section */}
-          <div className="self-end md:self-auto">
+          {/* Toggle Button Section - styled consistently */}
+          <div className="self-end md:self-auto flex items-center gap-2">
             <ToggleButton
               options={[
                 { label: "Click", value: "click" },
@@ -1302,14 +1302,15 @@ console.log(dwTrendChartConfig,"uuu")
             Invalid: `Invalid ${selectedType === "event" ? "Events" : selectedType === "click" ? "Clicks" : "Conversions"}`
           }}
           isLoading={totalPercentageApi.loading || isInitialLoading}
+          className="mb-2"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-2 min-h-[140px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 min-h-[320px]">
           <Card
             ref={(el) => {
               if (el) cardRefs.current["split_of_sources"] = el;
             }}
-            className="w-full shadow-md rounded-lg bg-white gap-2 dark:bg-card dark:text-white text-header h-full"
+            className="w-full shadow-md hover:shadow-xl rounded-xl border-border/40 bg-card dark:bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-border/60 gap-2 h-full"
           >
             <CardContent className="w-full min-h-[300px]">
                               <DonutChart
@@ -1358,7 +1359,7 @@ console.log(dwTrendChartConfig,"uuu")
             ref={(el) => {
               if (el) cardRefs.current["date_wise_trend"] = el;
             }}
-            className="w-full shadow-md rounded-lg dark:bg-card h-[320px] lg:col-span-2"
+            className="w-full shadow-md hover:shadow-xl rounded-xl border-border/40 bg-card dark:bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-border/60 h-[320px] lg:col-span-2"
           >
             <CardTitle className="p-2">
               <HeaderRow
@@ -1416,7 +1417,7 @@ console.log(dwTrendChartConfig,"uuu")
             ref={(el) => {
               if (el) cardRefs.current["publisher_vendor_trend"] = el;
             }}
-            className="w-full shadow-md rounded-lg dark:bg-card h-[320px]"
+            className="w-full shadow-md hover:shadow-xl rounded-xl border-border/40 bg-card dark:bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-border/60 h-[320px]"
           >
             <CardTitle className="p-2">
               <HeaderRow
