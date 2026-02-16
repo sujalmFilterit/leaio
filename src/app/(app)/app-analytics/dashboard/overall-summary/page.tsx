@@ -277,8 +277,6 @@ const Dashboard = () => {
     !!publisherVendorTrendExportPayload
   );
 
-  console.log("loading checking", isLoadingSplitOfSources, isPackageLoading);
-
   // Compute split of sources chart data and config from API response
   const { splitOfSourcesChartData, splitOfSourcesChartConfig } = useMemo(() => {
     const response = Array.isArray(splitOfSourcesData)
@@ -385,18 +383,17 @@ const Dashboard = () => {
     }
   }, [publisherVendorTrendExportData]);
 
-  console.log("loading checking", isLoadingTotalPercentage, isPackageLoading);
   return (
     <>
-      <div className="flex flex-col gap-3 w-full min-h-screen bg-gradient-to-br from-background via-background to-background/95">
-        <div className="md:hidden sticky top-0 z-50 bg-background/95 backdrop-blur-md px-4 py-4 border-b border-border/30 shadow-md">
-          <h1 className="text-lg font-semibold text-foreground text-center">
+      <div className="flex flex-col gap-4 w-full min-h-screen bg-gradient-to-b from-background via-background/98 to-background">
+        <div className="md:hidden sticky top-0 z-50 bg-background/98 backdrop-blur-lg px-4 py-5 border-b border-border/40 shadow-sm">
+          <h1 className="text-xl font-bold text-foreground text-center bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
             Overall Summary
           </h1>
         </div>
-        {/* Modern Filters Row with Glassmorphism Effect */}
-        <div className="sticky top-0 z-50 bg-card/50 backdrop-blur-md border border-border/30 rounded-xl shadow-lg mt-2 transition-all duration-300 hover:bg-card/60 hover:border-border/50">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-4 sm:p-5">
+        {/* Modern Filters Row with Enhanced Styling */}
+        <div className="sticky top-0 z-50 bg-card/60 backdrop-blur-xl border border-primary/10 rounded-2xl shadow-lg mt-2 transition-all duration-300 hover:bg-card/70 hover:border-primary/20 hover:shadow-xl">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-5 sm:p-6">
             {/* Mobile Filter Button - Only visible on small devices */}
             <div className="lg:hidden w-full flex flex-col gap-2">
               <div className="flex items-center justify-between w-full">
@@ -550,7 +547,7 @@ const Dashboard = () => {
         />
 
         {/* Enhanced Stats Cards with Modern Design */}
-        <div className="transition-all duration-300 ease-in-out">
+        <div className="transition-all duration-300 ease-in-out px-2">
           <StatsCards
             data={totalPercentageData || {}}
             customLabels={{
@@ -569,7 +566,7 @@ const Dashboard = () => {
         </div>
 
         {/* Modern Charts Grid with Better Spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 transition-all duration-300">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-4 transition-all duration-300 px-2">
           {/* Donut Chart with Modern Card */}
           <div
             ref={(el) => {

@@ -233,7 +233,7 @@ const InDepthAnomalyAnalysis: React.FC<InDepthAnomalyAnalysisProps> = ({
   return (
     <>
       {/* Modern Card Container with Glassmorphism */}
-      <div className=" flex flex-col  w-full backdrop-blur-lg bg-background/80 dark:bg-card/80 border border-border/40 rounded-xl shadow-lg p-2 transition-all duration-300">
+      <div className="flex flex-col w-full backdrop-blur-xl bg-card/70 border border-primary/10 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
         <div className="w-full space-y-2">
           {/* Modern Section Header */}
           <div className="w-full">
@@ -249,7 +249,7 @@ const InDepthAnomalyAnalysis: React.FC<InDepthAnomalyAnalysisProps> = ({
 
           {/* Charts Grid */}
           <div className="w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-2 transition-all duration-300">
+            <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 transition-all duration-300">
               {/* Fraud Categories Donut Chart */}
               <div
                 ref={(el) => {
@@ -331,8 +331,8 @@ const InDepthAnomalyAnalysis: React.FC<InDepthAnomalyAnalysisProps> = ({
         </div>
 
         {/* Second Row - Date Wise & Publisher/Vendor Analysis */}
-        <div className="w-full mt-2">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div className="w-full mt-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Area Chart */}
             <div
               ref={(el) => {
