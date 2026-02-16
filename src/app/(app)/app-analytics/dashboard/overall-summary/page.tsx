@@ -277,8 +277,6 @@ const Dashboard = () => {
     !!publisherVendorTrendExportPayload
   );
 
-  console.log("loading checking", isLoadingSplitOfSources, isPackageLoading);
-
   // Compute split of sources chart data and config from API response
   const { splitOfSourcesChartData, splitOfSourcesChartConfig } = useMemo(() => {
     const response = Array.isArray(splitOfSourcesData)
@@ -385,7 +383,6 @@ const Dashboard = () => {
     }
   }, [publisherVendorTrendExportData]);
 
-  console.log("loading checking", isLoadingTotalPercentage, isPackageLoading);
   return (
     <>
       <div className="flex flex-col gap-3 w-full min-h-screen bg-gradient-to-br from-background via-background to-background/95">
@@ -395,8 +392,8 @@ const Dashboard = () => {
           </h1>
         </div>
         {/* Modern Filters Row with Glassmorphism Effect */}
-        <div className="sticky top-0 z-50 bg-card/50 backdrop-blur-md border border-border/30 rounded-xl shadow-lg mt-2 transition-all duration-300 hover:bg-card/60 hover:border-border/50">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-4 sm:p-5">
+        <div className="sticky top-0 z-50 bg-gradient-to-br from-card/50 via-card/40 to-card/30 backdrop-blur-xl border border-border/40 rounded-2xl shadow-xl mt-2 transition-all duration-300 hover:bg-gradient-to-br hover:from-card/60 hover:via-card/50 hover:to-card/40 hover:border-border/60 hover:shadow-2xl before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/5 before:to-transparent before:rounded-2xl before:pointer-events-none">
+          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-4 sm:p-5">
             {/* Mobile Filter Button - Only visible on small devices */}
             <div className="lg:hidden w-full flex flex-col gap-2">
               <div className="flex items-center justify-between w-full">
@@ -569,7 +566,7 @@ const Dashboard = () => {
         </div>
 
         {/* Modern Charts Grid with Better Spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 transition-all duration-300">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-4 transition-all duration-300">
           {/* Donut Chart with Modern Card */}
           <div
             ref={(el) => {

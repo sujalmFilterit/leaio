@@ -304,7 +304,7 @@ const StatsCards: React.FC<StatsCardsProps> = ({
   }
 
   return (
-    <div className={`grid ${getGridColsClass()} w-full gap-2 ${className}`}>
+    <div className={`grid ${getGridColsClass()} w-full gap-3 ${className}`}>
       {cardItems.map((item) => {
         const hasPercentage = showPercentage && item.percentage;
         const borderColor = item.colorCode;
@@ -313,64 +313,67 @@ const StatsCards: React.FC<StatsCardsProps> = ({
         return (
           <div key={item.key} className="flex-1 group">
             <div
-              className="relative overflow-hidden  dark:bg-card bg-white rounded-xl border border-border/40 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-border/60"
+              className="relative overflow-hidden h-full bg-gradient-to-br from-card/50 via-card to-card/80 backdrop-blur-md dark:from-card/40 dark:via-card dark:to-card/60 rounded-2xl border border-border/40 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-border/60 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:to-transparent before:rounded-2xl"
               style={{
                 height: getCardHeightStyle(),
               }}
             >
-              {/* Decorative gradient bar */}
+              {/* Decorative accent bar */}
               <div
-                className="absolute top-0 right-0 w-1.5 h-full transition-all duration-300 group-hover:w-2"
+                className="absolute top-0 right-0 w-1.5 h-1/2 transition-all duration-300 group-hover:w-2"
                 style={{
-                  background: `linear-gradient(180deg, ${borderColor}, ${borderColor}80)`,
+                  background: `linear-gradient(180deg, ${borderColor}, ${borderColor}00)`,
                 }}
               />
               
-              {/* Decorative background accent */}
+              {/* Decorative glow accent */}
               <div
-                className="absolute top-0 right-0 w-24 h-24 rounded-full blur-3xl opacity-10 transition-all duration-300 group-hover:opacity-20"
+                className="absolute -top-8 -right-8 w-32 h-32 rounded-full blur-2xl opacity-5 transition-all duration-300 group-hover:opacity-15"
                 style={{
                   background: borderColor,
                 }}
               />
 
-              {/* Icon in top left corner */}
+              {/* Icon in top right corner */}
               {icons[item.key] && (() => {
                 const IconComponent = icons[item.key];
                 return (
-                  <div className="absolute top-2 left-2 z-10 bg-gray-200 rounded-md p-1">
+                  <div className="absolute top-3 right-3 z-10 p-2 rounded-lg transition-all duration-300 group-hover:scale-110" style={{ backgroundColor: `${borderColor}15` }}>
                     <IconComponent 
-                      className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:scale-110 text-primary  bg-primary/10 rounded-full p-1" 
+                      className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" 
+                      style={{ color: borderColor }}
                     />
                   </div>
                 );
               })()}
 
-              <div className="relative p-4 h-full flex flex-col justify-center items-center">
-                <div className="flex flex-col gap-2 items-center w-full">
+              <div className="relative p-4 h-full flex flex-col justify-center items-start">
+                <div className="flex flex-col gap-3 items-start w-full">
+                  {/* Label first */}
+                  <div className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider opacity-75">
+                    {item.label}
+                  </div>
+                  
                   {/* Count Row */}
-                  <div className="flex flex-row gap-2 items-center justify-center flex-wrap">
+                  <div className="flex flex-row gap-2 items-baseline flex-wrap">
                     <div
-                      className="text-3xl sm:text-4xl font-bold text-center tracking-tight transition-all duration-300 dark:text-white"
-                      style={{ color: hasPercentage ? countColor : undefined }}
+                      className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight transition-all duration-300 dark:text-white"
+                      style={{ color: countColor }}
                     >
                       <AnimatedCount targetValue={item.count} />
                     </div>
                     {hasPercentage && (
                       <span
-                        className="text-xs sm:text-sm font-bold rounded-lg px-2.5 py-1 shadow-sm transition-all duration-300 group-hover:scale-105"
+                        className="text-xs sm:text-sm font-bold rounded-lg px-2 py-0.5 shadow-md transition-all duration-300 group-hover:scale-105 whitespace-nowrap"
                         style={{
-                          backgroundColor: `${borderColor}15`,
+                          backgroundColor: `${borderColor}20`,
                           color: borderColor,
-                          border: `1px solid ${borderColor}30`,
+                          border: `1.5px solid ${borderColor}40`,
                         }}
                       >
                         {item.percentage}
                       </span>
                     )}
-                  </div>
-                  <div className="text-xs sm:text-sm font-medium text-muted-foreground text-center">
-                    {item.label}
                   </div>
                 </div>
               </div>

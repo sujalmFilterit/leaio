@@ -232,24 +232,23 @@ const InDepthAnomalyAnalysis: React.FC<InDepthAnomalyAnalysisProps> = ({
 
   return (
     <>
-      {/* Modern Card Container with Glassmorphism */}
-      <div className=" flex flex-col  w-full backdrop-blur-lg bg-background/80 dark:bg-card/80 border border-border/40 rounded-xl shadow-lg p-2 transition-all duration-300">
-        <div className="w-full space-y-2">
+      {/* Modern Card Container with Enhanced Glassmorphism */}
+      <div className="flex flex-col w-full bg-gradient-to-br from-card/40 via-card to-card/60 dark:from-card/50 dark:via-card dark:to-card/30 backdrop-blur-xl border border-border/40 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-2xl hover:border-border/60">
+        <div className="w-full space-y-3">
           {/* Modern Section Header */}
-          <div className="w-full">
-            <div className="flex items-center justify-center gap-2">
-              <div className="h-8 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />
-
-              <h2 className="text-lg sm:text-xl font-bold text-foreground gradient-text">
+          <div className="w-full pb-3 border-b border-border/30">
+            <div className="flex items-center justify-start gap-3">
+              <div className="h-8 w-1.5 bg-gradient-to-b from-primary via-primary to-primary/50 rounded-full" />
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">
                 In-Depth Anomaly Analysis
               </h2>
-              <div className="h-8 w-1 bg-gradient-to-b from-secondary to-primary rounded-full" />
+              <Sparkles className="w-5 h-5 text-primary/60 ml-auto animate-pulse" />
             </div>
           </div>
 
           {/* Charts Grid */}
           <div className="w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-2 transition-all duration-300">
+            <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 transition-all duration-300">
               {/* Fraud Categories Donut Chart */}
               <div
                 ref={(el) => {
@@ -331,8 +330,8 @@ const InDepthAnomalyAnalysis: React.FC<InDepthAnomalyAnalysisProps> = ({
         </div>
 
         {/* Second Row - Date Wise & Publisher/Vendor Analysis */}
-        <div className="w-full mt-2">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div className="w-full mt-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Area Chart */}
             <div
               ref={(el) => {

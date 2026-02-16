@@ -205,7 +205,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
     // <Card className="flex flex-wrap justify-between border-none w-full h-full">
     <Card
       //ref={cardRef}
-      className={`w-full shadow-md rounded-lg dark:bg-card ${className}`}
+      className={`w-full shadow-lg rounded-2xl dark:bg-gradient-to-br dark:from-card/50 dark:via-card dark:to-card/80 bg-gradient-to-br from-card/40 via-card to-card/60 border border-border/40 hover:shadow-2xl transition-all duration-300 ${className}`}
       style={{
         height:
           typeof cardHeight === "number"
@@ -350,38 +350,40 @@ const DonutChart: React.FC<DonutChartProps> = ({
           </div>
  
           {/* Legend Container */}{chartData.length > 0 && (
-            <div className={`flex flex-col justify-start sm:col-span-1 md:col-span-1 lg:col-span-1 sm:text-subBody border-none ${marginTop} ${isFullscreen ? 'h-full overflow-visible' : 'h-[230px] overflow-y-auto scrollbar'} w-full`}>
-              <div className={`flex ${direction} md:${direction} sm:${direction} lg:flex-col xl:flex-col mt-6 ${position} ${isFullscreen ? 'mt-8 gap-4' : ''}`}>
+            <div className={`flex flex-col justify-start sm:col-span-1 md:col-span-1 lg:col-span-1 sm:text-subBody border-l border-border/30 ${marginTop} ${isFullscreen ? 'h-full overflow-visible' : 'h-[230px] overflow-y-auto scrollbar'} w-full pl-4`}>
+              <div className={`flex ${direction} md:${direction} sm:${direction} lg:flex-col xl:flex-col mt-4 ${position} gap-3 ${isFullscreen ? 'gap-4' : ''}`}>
                 {chartData.length > 0 && chartData?.map((item, index) => {
                   // Dynamically pick label and value using props (with fallback)
                   const label = String(item[nameKey || ""] ?? item.label ?? "");
                   const value = item[dataKey || ""] ?? item.value ?? 0;
                   const isActive = activeLegendIndex === index;
+                  const itemColor = item?.fill || chartConfig?.[label]?.color;
  
                   return (
                     <div
                       key={label}
-                      className={`flex items-center gap-2 p-2 cursor-pointer transition-all ${isActive ? "bg-gray-100 dark:bg-gray-700 rounded-lg scale-105" : ""
-                        } ${isFullscreen ? "p-3 text-Header" : "text-subBody"}`}
+                      className={`flex items-center gap-2.5 p-2.5 cursor-pointer transition-all duration-200 rounded-lg border ${isActive ? "bg-gradient-to-r from-muted/40 to-muted/20 border-border/50 scale-105 shadow-sm" : "border-transparent hover:border-border/30 hover:bg-muted/10"}`}
                       onClick={() => {
                         if (legendClickable) {
-                          setActiveLegendIndex(index); // only pop if clickable
+                          setActiveLegendIndex(index);
                         }
                       }}
                     >
-                      <span
-                        className={`inline-block rounded-full border-r p-2 ${isFullscreen ? "w-6 h-6" : "w-4 h-4"}`}
-                        style={{ backgroundColor: item?.fill || chartConfig?.[label]?.color }}
+                      <div
+                        className={`flex-shrink-0 rounded-lg transition-all duration-200 ${isFullscreen ? "w-6 h-6" : "w-4 h-4"}`}
+                        style={{ backgroundColor: itemColor, boxShadow: `0 0 8px ${itemColor}40` }}
                       />
-                      <p className={`${isFullscreen ? "text-Header" : "text-subBody"}`}>
-                        {label.charAt(0).toUpperCase() + label.slice(1)}:
-                        <span className="px-2">
+                      <div className="flex-1 min-w-0">
+                        <p className={`font-medium text-foreground truncate ${isFullscreen ? "text-Header" : "text-sm"}`}>
+                          {label.charAt(0).toUpperCase() + label.slice(1)}
+                        </p>
+                        <p className={`font-semibold transition-all duration-200 ${isFullscreen ? "text-lg" : "text-xs"}`} style={{ color: itemColor }}>
                           {displayMode === "percentage" && `${value}%`}
                           {displayMode === "value" && (value.toLocaleString("en-US"))}
                           {displayMode === "both" &&
-                            `${(value.toLocaleString("en-US"))} (${item?.percentage ?? value})`}
-                        </span>
-                      </p>
+                            `${(value.toLocaleString("en-US"))} (${item?.percentage ?? value}%)`}
+                        </p>
+                      </div>
                     </div>
                   );
                 })}
