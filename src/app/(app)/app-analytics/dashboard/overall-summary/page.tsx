@@ -79,7 +79,7 @@ const Dashboard = () => {
   // Refs
   const cardRefs = useRef<Record<string, HTMLElement | null>>({});
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  
+
   const baseFilterPayload = {
     package_name: selectedPackage,
     start_date: startDate,
@@ -413,17 +413,17 @@ const Dashboard = () => {
                       0
                     ) >
                     0 && (
-                    <span className="ml-1 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
-                      {Object.values(filterConfig.publishersFilter).reduce(
-                        (sum, f) => sum + (f.selectedCount || 0),
-                        0
-                      ) +
-                        Object.values(filterConfig.otherFilters).reduce(
+                      <span className="ml-1 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
+                        {Object.values(filterConfig.publishersFilter).reduce(
                           (sum, f) => sum + (f.selectedCount || 0),
                           0
-                        )}
-                    </span>
-                  )}
+                        ) +
+                          Object.values(filterConfig.otherFilters).reduce(
+                            (sum, f) => sum + (f.selectedCount || 0),
+                            0
+                          )}
+                      </span>
+                    )}
                 </Button>
                 <ToggleButton
                   options={[
@@ -572,7 +572,7 @@ const Dashboard = () => {
             ref={(el) => {
               if (el) cardRefs.current["split_of_sources"] = el;
             }}
-            className="transition-all duration-300 hover:shadow-xl"
+            className="transition-all duration-300 overflow-hidden hover:shadow-xl"
           >
             <DonutChart
               chartData={splitOfSourcesChartData}
@@ -725,7 +725,7 @@ const Dashboard = () => {
               fraudStatsLoading={isLoadingFraudCategories}
               isExportingFraudCategories={exporting.fraudCategories}
               onDonutSegmentClick={handleDonutSegmentClick}
-              refetchFraudCategories={() => () => {}}
+              refetchFraudCategories={() => () => { }}
               progressBarData={
                 Array.isArray(progressBarDataResponse)
                   ? progressBarDataResponse
@@ -733,17 +733,17 @@ const Dashboard = () => {
               }
               progressBarLoading={isLoadingProgressBar}
               isExportingProgressBar={exporting.progressBar}
-              refetchProgressBar={() => () => {}}
+              refetchProgressBar={() => () => { }}
               areaChartData1={areaChartDataResponse?.data || []}
               areaBarConfig={areaChartDataResponse?.config}
               areaChartApiLoading={isLoadingAreaChart}
               isExportingAreaChart={exporting.areaChart}
-              refetchAreaChart={() => () => {}}
+              refetchAreaChart={() => () => { }}
               reattributionChartData={reattributionData?.data || []}
               reattributionStackedBarConfig={reattributionData?.config}
               reattributionLoading={isLoadingReattribution}
               isExportingReattribution={exporting.reattribution}
-              refetchReattribution={() => () => {}}
+              refetchReattribution={() => () => { }}
               onclickvalue={onclickvalue}
               selectedRadio1={publisherVendorFilter}
               setSelectedRadio1={setPublisherVendorFilter}
