@@ -541,10 +541,10 @@ const AnalysisInsights: React.FC<AnalysisInsightsProps> = ({
       {fraudSubCategories.length > 0 && (
         <>
           {/* Modern Analysis Insights Container */}
-          <div className="w-full backdrop-blur-xl bg-card/70 border border-primary/10 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
-            <div className="flex flex-col">
+          <div className="w-full backdrop-blur-lg bg-background/80 dark:bg-card/80 border border-border/40 rounded-xl shadow-lg  transition-all duration-300">
+            <div className="flex flex-col ">
               {/* Modern Section Header with Dropdown */}
-              <div className="flex items-center justify-between gap-3 pb-4 border-b border-border/30">
+              <div className="flex items-center justify-between gap-2 p-2 ">
                 {/* Title with gradient bars */}
                 <div className="flex items-center gap-2">
                   <div className="h-8 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />

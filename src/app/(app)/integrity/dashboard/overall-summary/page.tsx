@@ -513,7 +513,7 @@ const COLORS = [
       Affiliate: [],
       "Whitelisted Publisher": [],
     });
-  }, [selectedType]);
+  }, [selectedType, startDate, endDate]);
 
   // Check if filter data is loaded - Modified to allow API calls even without complete filter data
   const isFilterDataLoaded = useMemo(() => {

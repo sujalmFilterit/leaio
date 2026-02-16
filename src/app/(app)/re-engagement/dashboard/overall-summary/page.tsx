@@ -368,7 +368,7 @@ const Dashboard = () => {
     if (selectedType !== "event") {
       setExistingEventTypedata([]);
     }
-  }, [selectedType]);
+  }, [selectedType, startDate, endDate]);
 
 
 
