@@ -627,7 +627,7 @@ const ResizableTable = <
               {isSearchable && (
                 <div
                   className={cn(
-                    "flex items-center space-x-2 p-2 border rounded-md border-gray-200 dark:border-gray-700",
+                    "flex items-center space-x-2 p-2.5 border rounded-lg border-border/40 bg-background/50 hover:bg-background/70 transition-colors shadow-sm",
                     isSearchExpanded ? "w-full" : "w-full md:flex-1"
                   )}
                 >
@@ -818,7 +818,7 @@ const ResizableTable = <
 
           {/* Table Container */}
           <div
-            className="relative flex-1 border border-t-0 overflow-hidden"
+            className="relative flex-1 border-l border-r border-b border-border/30 overflow-hidden"
             style={{
               borderBottomLeftRadius: toCssValue(
                 tableBorderRadius || borderRadius
@@ -843,9 +843,8 @@ const ResizableTable = <
               ) : (
                 <Table className="min-w-full">
                   <TableHeader
-                    className={`sticky top-0 z-20 p-0 border-y-0 border`}
+                    className={`sticky top-0 z-20 p-0 border-y border-border/30 bg-gradient-to-r from-muted/40 to-muted/20`}
                     style={{
-                      backgroundColor: headerColor,
                       position: "sticky",
                       top: 0,
                     }}
@@ -854,12 +853,12 @@ const ResizableTable = <
                       {/* Select All Checkbox */}
                       {isCheckbox && (
                         <TableHead
-                          className={`border-r`}
+                          className={`border-r border-border/30`}
                           style={{
                             width: "50px",
                             minWidth: "50px",
                             maxWidth: "50px",
-                            backgroundColor: headerColor,
+                            backgroundColor: "transparent",
                             ...(stickyColumns &&
                               stickyColumns.length > 0 && {
                                 position: "sticky",
@@ -889,10 +888,10 @@ const ResizableTable = <
                         return (
                           <TableHead
                             key={column.key}
-                            className="relative border-r p-0"
+                            className="relative border-r border-border/30 p-0 hover:bg-muted/30 transition-colors"
                             style={{
-                              backgroundColor: headerColor,
-                              color: "black",
+                              backgroundColor: "transparent",
+                              color: "currentColor",
                               width: `${columnWidths[column.key] || defaultColumnWidth}px`,
                               whiteSpace: isMultiLineHeader
                                 ? "pre-line"

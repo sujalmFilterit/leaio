@@ -707,16 +707,15 @@ export default function Publisher({
   };
 
   return (
-    <div className="w-full backdrop-blur-lg bg-background/80 dark:bg-card/80 border border-border/40 rounded-xl shadow-lg p-2 transition-all duration-300">
+    <div className="w-full bg-gradient-to-br from-card/40 via-card to-card/60 dark:from-card/50 dark:via-card dark:to-card/30 backdrop-blur-xl border border-border/40 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-2xl hover:border-border/60">
       {/* Modern Section Header with Event Type Selector */}
-      <div className="flex  items-start sm:items-center justify-between gap-2 pb-2">
+      <div className="flex items-start sm:items-center justify-between gap-2 pb-4 border-b border-border/30">
         {/* Title with gradient bars */}
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />
-          <h2 className="text-body sm:text-subHeader font-bold text-foreground gradient-text">
+        <div className="flex items-center gap-3">
+          <div className="h-8 w-1.5 bg-gradient-to-b from-primary via-primary to-primary/50 rounded-full" />
+          <h2 className="text-lg sm:text-xl font-bold text-foreground">
             Publisher Validation Summary
           </h2>
-          <div className="h-8 w-1 bg-gradient-to-b from-secondary to-primary rounded-full" />
         </div>
 
         {/* Event Type Dropdown */}
@@ -792,11 +791,12 @@ export default function Publisher({
         </div>
       </div>
 
-      <ResizableTable
-        columns={tableColumns}
-        data={tableData1}
-        onSearch={(searchTerm: string) => {
-          setSearchTerm(searchTerm);
+      <div className="w-full px-4 py-4">
+        <ResizableTable
+          columns={tableColumns}
+          data={tableData1}
+          onSearch={(searchTerm: string) => {
+            setSearchTerm(searchTerm);
         }}
         isTableDownload={true}
         handleExport={handleExport}
@@ -823,9 +823,10 @@ export default function Publisher({
           );
         }}
         selectedFilterValue={selectedRadioButton}
-        stickyColumns={["Publisher",]}
-        totalRecords={totalRecords}
-      />
+          stickyColumns={["Publisher",]}
+          totalRecords={totalRecords}
+        />
+      </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogContent className="max-w-[95vw] w-full max-h-[90vh] overflow-hidden flex flex-col z-[9999]">

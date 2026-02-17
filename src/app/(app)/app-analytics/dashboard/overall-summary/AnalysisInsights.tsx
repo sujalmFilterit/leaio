@@ -541,17 +541,16 @@ const AnalysisInsights: React.FC<AnalysisInsightsProps> = ({
       {fraudSubCategories.length > 0 && (
         <>
           {/* Modern Analysis Insights Container */}
-          <div className="w-full backdrop-blur-lg bg-background/80 dark:bg-card/80 border border-border/40 rounded-xl shadow-lg  transition-all duration-300">
+          <div className="w-full bg-gradient-to-br from-card/40 via-card to-card/60 dark:from-card/50 dark:via-card dark:to-card/30 backdrop-blur-xl border border-border/40 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-border/60">
             <div className="flex flex-col ">
               {/* Modern Section Header with Dropdown */}
-              <div className="flex items-center justify-between gap-2 p-2 ">
+              <div className="flex items-center justify-between gap-2 p-4 border-b border-border/30">
                 {/* Title with gradient bars */}
-                <div className="flex items-center gap-2">
-                  <div className="h-8 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />
-                  <h2 className="text-body sm:text-subHeader font-bold text-foreground gradient-text">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-1.5 bg-gradient-to-b from-primary via-primary to-primary/50 rounded-full" />
+                  <h2 className="text-lg sm:text-xl font-bold text-foreground">
                     {onclickvalue1 ? onclickvalue1 : `Click Fraud`}
                   </h2>
-                  <div className="h-8 w-1 bg-gradient-to-b from-secondary to-primary rounded-full" />
                 </div>
 
                 {/* Fraud Subcategory Selector */}
@@ -578,11 +577,11 @@ const AnalysisInsights: React.FC<AnalysisInsightsProps> = ({
               </div>
 
               {/* Content Area */}
-              <div className="w-full">
+              <div className="w-full px-4 py-4">
                 {fraudSubCategories.length > 0 ? (
                   renderIncentSamplesDynamicView()
                 ) : (
-                  <div className="w-full flex items-center justify-center p-2 bg-muted/20 rounded-lg border border-dashed border-border/50">
+                  <div className="w-full flex items-center justify-center p-6 bg-gradient-to-br from-muted/10 to-muted/5 rounded-lg border border-border/30">
                     <div className="text-center">
                       {fraudSubCategoryLoading || !!isInitialLoading ? (
                         <div className="flex flex-col items-center gap-3">

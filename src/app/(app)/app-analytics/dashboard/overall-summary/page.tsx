@@ -572,7 +572,7 @@ const Dashboard = () => {
             ref={(el) => {
               if (el) cardRefs.current["split_of_sources"] = el;
             }}
-            className="transition-all duration-300 overflow-hidden hover:shadow-xl"
+            className="transition-all duration-300 overflow-hidden hover:shadow-2xl rounded-2xl border border-border/40"
           >
             <DonutChart
               chartData={splitOfSourcesChartData}
@@ -615,7 +615,7 @@ const Dashboard = () => {
             ref={(el) => {
               if (el) cardRefs.current["date_wise_trend"] = el;
             }}
-            className="lg:col-span-2 transition-all duration-300 hover:shadow-xl"
+            className="lg:col-span-2 transition-all duration-300 hover:shadow-2xl rounded-2xl border border-border/40"
           >
             <StackedBarWithLine
               chartData={dwTrendData?.data || []}
@@ -663,7 +663,7 @@ const Dashboard = () => {
           ref={(el) => {
             if (el) cardRefs.current["publisher_vendor_trend"] = el;
           }}
-          className="w-full transition-all duration-300 hover:shadow-xl"
+          className="w-full transition-all duration-300 hover:shadow-2xl rounded-2xl border border-border/40"
         >
           <StackedBarWithLine
             chartData={publisherVendorData?.data || []}
