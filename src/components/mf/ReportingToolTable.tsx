@@ -618,9 +618,9 @@ const ResizableTable = <
           <TicketingTableSkeleton height={containerHeight} />
         </div>
       ) : (
-        <div style={outerContainerStyle} className="dark:bg-card bg-white">
+        <div style={outerContainerStyle} className="dark:bg-gradient-to-br dark:from-card/50 dark:via-card dark:to-card/80 bg-gradient-to-br from-card/40 via-card to-card/60 border border-border/40">
           {/* Table Controls - Top Bar */}
-          <div style={controlsBarStyle} className="md:flex-row text-body border border-gray-200 dark:border-gray-700">
+          <div style={controlsBarStyle} className="md:flex-row text-body border-b border-border/30 bg-gradient-to-r from-muted/20 to-muted/10">
             {/* Left Side Controls */}
             <div className="flex flex-1 flex-wrap md:flex-nowrap items-center gap-2 ">
               {/* Search Bar */}
